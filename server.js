@@ -46,6 +46,13 @@ app.post("/joke", async (req , res) => {
         error_displayed : "Type the name correctly"
     });
 }
+
+    res.send("world explorer is running")
+});
+
+app.get("/joke" , async (req , res) => {
+    const country = req.query.country;
+    const result = await axios.get(url + `/countries/v5/names.common/${country}` , config);
 });
 
 app.listen(port , () => {
