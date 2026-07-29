@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a{
+        text-decoration: none;
+}
+.pageWrapper{
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0px 25px 25px 25px;
+    background-image: url(../images/abik-peravan-5r2fyy-ow5g-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+}
+/* --------------------------------HEADER----------------------------------------------------- */
+.navbar{
+    display: flex;
+    gap: 5px;
+    min-height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 25px;
+}
+.navbar h3{
+    font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.logo{
+    margin-top: 4px;
+}
+.nav_logo{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.nav_list{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.nav_list li a {
+    font-weight: 600;
+    color: black;
+    letter-spacing: 1px;
+    transition-duration: 0.2s;
+}
+.nav_list li a:hover{
+    color: rgb(93, 90, 90);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World-Explorer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <%- include("partials/header") %>
+
+        <div class="pageWrapper">
+            <% if(locals.error_displayed) { %>
+                <p><%= error_displayed %></p>
+            <% } else if(!locals.data) {%>
+                <form action="/joke" method="post">
+                    <label for="input">Country to explore : </label>
+                    <input type="text" name="input" id="">
+                    <button type="submit">Explore</button>
+                </form>
+            <% } else if (locals.data) { %>
+                    <h3>Country's Name : <%= data.country_common_name %></h3>
+                    <h3>Country's Capital Name : <%= data.country_capital_name %></h3>
+                    <h3>Country's Region Name : <%= data.country_region_name %></h3>
+                    <h3>Country's Total Population : <%= data.country_population %></h3>
+                    <h3>Country's Currency Name : <%= data.country_currency_name %></h3>
+                    <h3>Country's Languages : <%= data.country_language_names %></h3>
+                    <h3>Country's Continent Name : <%= data.country_continent_name %></h3>
+                    <h3>Country's Calling Code : <%= data.country_callingcode %></h3>
+                    <h3>Country's Driving Side : <%= data.country_driving_side %></h3>
+                    <h3>Country's Flag :</h3><img class="hero_image" src="<%= data.country_flag %>" alt="Flag">
+            <% } %>
+        </div>
+</body>
+</html>
