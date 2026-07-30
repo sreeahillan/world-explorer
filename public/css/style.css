@@ -1,52 +1,185 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-a{
-        text-decoration: none;
+a {
+  text-decoration: none;
 }
-.pageWrapper{
-    min-height: 100vh;
-    max-width: 100%;
-    margin: 0px 25px 25px 25px;
-    background-image: url(../images/abik-peravan-5r2fyy-ow5g-unsplash.jpg);
-    background-position: center;
-    background-size: cover;
-    border-radius: 20px;
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  /* max-width: 100%; */
+  margin: 0px 25px;
+  background-image: url(../images/fabrizio-conti-kXVogATbFgA-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 90px 50px 90px 50px;
 }
 /* --------------------------------HEADER----------------------------------------------------- */
-.navbar{
-    display: flex;
-    gap: 5px;
-    min-height: 50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 25px;
+.navbar {
+  display: flex;
+  gap: 5px;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 25px;
 }
-.navbar h3{
-    font-family: "Poppins", sans-serif;
+.navbar h3 {
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-.logo{
-    margin-top: 4px;
+.logo {
+  margin-top: 4px;
 }
-.nav_logo{
-    display: flex;
-    gap: 6px;
-    align-items: center;
+.nav_logo {
+  display: flex;
+  gap: 6px;
+  align-items: center;
 }
-.nav_list{
-    list-style: none;
-    display: flex;
-    gap: 15px;
+.nav_list {
+  list-style: none;
+  display: flex;
+  gap: 15px;
 }
 .nav_list li a {
-    font-weight: 600;
-    color: black;
-    letter-spacing: 1px;
-    transition-duration: 0.2s;
+  font-weight: 600;
+  color: black;
+  letter-spacing: 1px;
+  transition-duration: 0.2s;
 }
-.nav_list li a:hover{
-    color: rgb(93, 90, 90);
+.nav_list li a:hover {
+  color: rgb(93, 90, 90);
+}
+/* ____________________________________________________________FOOTER______________________________________________________________ */
+
+.footer {
+  height: 35px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+}
+.footer p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------index--------------------------------------------------------------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero_main {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 5rem;
+  line-height: 90px;
+}
+.hero_para {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.wrapper {
+  max-width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+  max-width: 600px;
+}
+.submit {
+  width: fit-content;
+  align-self: flex-end;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  transition-duration: 0.5s;
+}
+.form label {
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+}
+.input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition-duration: 0.2s;
+  font-family: "Work Sans", sans-serif;
+}
+.input-2 {
+  display: flex;
+  gap: 7px;
+}
+/* ------------------------------------------------------------Result page-------------------------------------------------------------------------- */
+.result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 90px;
+}
+.grid-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  grid-column: span 2;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.grid-capital{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px #ffffff90 solid;
+    align-items: center;
+    border-radius: 25px;
+    background-color: rgb(1 113 218 / 30%);
+    padding: 10px 20px;
+}
+.grid-capital > h3{
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+}
+.grid-capital > h4 {
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.85rem;
+}
+.grid-currency{
+    display: flex;
+    gap: 5px;
+}
+
+/* ---------------------------------------------------------Hover---------------------------------------------------------------- */
+.submit:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.input:focus {
+  border: none;
+  outline: none;
 }

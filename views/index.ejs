@@ -1,35 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World-Explorer</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <%- include("partials/header") %>
-
-        <div class="pageWrapper">
-            <% if(locals.error_displayed) { %>
-                <p><%= error_displayed %></p>
-            <% } else if(!locals.data) {%>
-                <form action="/joke" method="post">
-                    <label for="input">Country to explore : </label>
-                    <input type="text" name="input" id="">
-                    <button type="submit">Explore</button>
-                </form>
-            <% } else if (locals.data) { %>
-                    <h3>Country's Name : <%= data.country_common_name %></h3>
-                    <h3>Country's Capital Name : <%= data.country_capital_name %></h3>
-                    <h3>Country's Region Name : <%= data.country_region_name %></h3>
-                    <h3>Country's Total Population : <%= data.country_population %></h3>
-                    <h3>Country's Currency Name : <%= data.country_currency_name %></h3>
-                    <h3>Country's Languages : <%= data.country_language_names %></h3>
-                    <h3>Country's Continent Name : <%= data.country_continent_name %></h3>
-                    <h3>Country's Calling Code : <%= data.country_callingcode %></h3>
-                    <h3>Country's Driving Side : <%= data.country_driving_side %></h3>
-                    <h3>Country's Flag :</h3><img class="hero_image" src="<%= data.country_flag %>" alt="Flag">
-            <% } %>
+    <div class="pageWrapper">
+      <div class="hero">
+        <h1 class="hero_main">
+          Explore the world,<br />
+          one country at a time.
+        </h1>
+        <p class="hero_para">
+          Discover countries, cultures, and places beyond borders.
+        </p>
+      </div>
+      <% if(locals.error_displayed) { %>
+      <p class="error_display"><%= error_displayed %></p>
+      <% } else if(!locals.data) {%>
+      <form action="/joke" method="post">
+        <div class="wrapper">
+          <div class="form">
+            <label for="input">Country to explore </label>
+            <div class="input-2">
+              <input
+                class="input"
+                type="text"
+                name="input"
+                placeholder="Search for a country..."
+              />
+              <button class="submit" type="submit">Explore</button>
+            </div>
+          </div>
         </div>
-</body>
+      </form>
+      <% } else if (locals.data) { %>
+      <div class="result">
+        <div class="grid-header">
+          <img
+            class="hero_image"
+            src="<%= data.country_flag %>"
+            alt="Flag"
+            height="20"
+          />
+          <h1><%= data.country_common_name %></h1>
+          <h1><%= data.country_continent_name %></h1>
+        </div>
+        <div class="grid-capital">
+          <h3>Capital</h3>
+          <h4><%= data.country_capital_name %></h4>
+        </div>
+        <div class="grid-capital">
+          <h3>Region</h3>
+          <h4><%= data.country_region_name %></h4>
+        </div>
+
+        <div class="grid-capital">
+          <h3>Population</h3>
+          <h4>
+            <%=  data.country_population.slice(0,1) %>.<%=  data.country_population.slice(1,3) %>
+            Billion %>
+          </h4>
+        </div>
+
+        <div class="grid-capital">
+          <h3>Currency</h3>
+          <div class="grid-currency">
+            <h4><%= data.country_currency_symbol %></h4>
+            <h4><%= data.country_currency_name %></h4>
+          </div>
+        </div>
+
+        <div class="grid-capital">
+          <h3>Languages</h3>
+          <h4><%= data.country_language_names %></h4>
+        </div>
+        <div class="grid-capital">
+          <h3>Continent</h3>
+          <h4><%= data.country_continent_name %></h4>
+        </div>
+        <div class="grid-capital">
+          <h3>Call Code</h3>
+          <h4>
+            +
+            <%= data.country_callingcode %>
+          </h4>
+        </div>
+        <div class="grid-capital">
+          <h3>Driving Side</h3>
+          <h4><%= data.country_driving_side %></h4>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <%- include("partials/footer.ejs") %>
+  </body>
 </html>
