@@ -161,7 +161,7 @@ http://localhost:3000
 
 # 🌐 Live Demo
 
-🚀 **Coming Soon**
+https://world-explorer-185j.onrender.com
 
 ---
 
