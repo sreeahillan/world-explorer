@@ -24,84 +24,105 @@
           Discover countries, cultures, and places beyond borders.
         </p>
       </div>
-      <% if(locals.error_displayed) { %>
-      <p class="error_display"><%= error_displayed %></p>
-      <% } else if(!locals.data) {%>
-      <form action="/joke" method="post">
-        <div class="wrapper">
-          <div class="form">
-            <label for="input">Country to explore </label>
-            <div class="input-2">
-              <input
-                class="input"
-                type="text"
-                name="input"
-                placeholder="Search for a country..."
-              />
-              <button class="submit" type="submit">Explore</button>
-            </div>
+      <% if(locals.error) { %>
+      <div class="error2">
+        <p class="error-p"><%= error %></p>
+        <a class="error-p underline" href="/">Retry</a>
+      </div>
+      <%} else if(!locals.data) { %>
+      <form class="form1" action="/explore" method="post">
+        <div class="form">
+          <label for="input">Country to explore </label>
+          <div class="input-2">
+            <input
+              class="input"
+              type="text"
+              name="input"
+              placeholder="Search for a country..."
+            />
+            <button class="submit" type="submit">Explore</button>
           </div>
+          <p class="error_display"></p>
         </div>
       </form>
       <% } else if (locals.data) { %>
       <div class="result">
         <div class="grid-header">
-          <img
-            class="hero_image"
-            src="<%= data.country_flag %>"
-            alt="Flag"
-            height="20"
-          />
           <h1><%= data.country_common_name %></h1>
-          <h1><%= data.country_continent_name %></h1>
+        </div>
+        <div class="grid-capital population">
+          <h2>👥</h2>
+          <div class="grid-capital2">
+            <span>Population</span>
+            <h1><%= data.country_population.toLocaleString() %></h1>
+          </div>
         </div>
         <div class="grid-capital">
-          <h3>Capital</h3>
-          <h4><%= data.country_capital_name %></h4>
+          <h2>🏛️</h2>
+          <div class="grid-capital2">
+            <span>Capital</span>
+            <h4 class="data"><%= data.country_capital_name %></h4>
+          </div>
         </div>
         <div class="grid-capital">
-          <h3>Region</h3>
-          <h4><%= data.country_region_name %></h4>
-        </div>
-
-        <div class="grid-capital">
-          <h3>Population</h3>
-          <h4>
-            <%=  data.country_population.slice(0,1) %>.<%=  data.country_population.slice(1,3) %>
-            Billion %>
-          </h4>
-        </div>
-
-        <div class="grid-capital">
-          <h3>Currency</h3>
-          <div class="grid-currency">
-            <h4><%= data.country_currency_symbol %></h4>
-            <h4><%= data.country_currency_name %></h4>
+          <h2>🌏</h2>
+          <div class="grid-capital2">
+            <span>Region</span>
+            <h4 class="data"><%= data.country_region_name %></h4>
           </div>
         </div>
 
         <div class="grid-capital">
-          <h3>Languages</h3>
-          <h4><%= data.country_language_names %></h4>
+          <h2>₹</h2>
+          <div class="grid-capital2">
+            <span>Currency</span>
+            <div class="grid-currency">
+              <h4 class="data"><%= data.country_currency_name %></h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-capital">
+          <h2>🗣️</h2>
+          <div class="grid-capital2">
+            <span>Languages</span>
+            <h4 class="data"><%= data.country_language_names %></h4>
+          </div>
         </div>
         <div class="grid-capital">
-          <h3>Continent</h3>
-          <h4><%= data.country_continent_name %></h4>
+          <h2>🌐</h2>
+          <div class="grid-capital2">
+            <span>Continent</span>
+            <h4 class="data"><%= data.country_continent_name %></h4>
+          </div>
         </div>
         <div class="grid-capital">
-          <h3>Call Code</h3>
-          <h4>
-            +
-            <%= data.country_callingcode %>
-          </h4>
+          <h2>📞</h2>
+          <div class="grid-capital2">
+            <span>Call Code</span>
+            <h4 class="data">+ <%= data.country_callingcode %></h4>
+          </div>
         </div>
         <div class="grid-capital">
-          <h3>Driving Side</h3>
-          <h4><%= data.country_driving_side %></h4>
+          <h2>🚗</h2>
+          <div class="grid-capital2 drive">
+            <span>Driving Side</span>
+            <h4 class="data"><%= data.country_driving_side %></h4>
+          </div>
+        </div>
+        <div class="grid-capital">
+          <img class="hero_image" src="<%= data.country_flag %>" alt="Flag" />
+          <div class="grid-capital2 drive">
+            <span>Country Flag</span>
+            <h4 class="data"><%= data.country_common_name %></h4>
+          </div>
         </div>
       </div>
+
       <% } %>
     </div>
-    <%- include("partials/footer.ejs") %>
+    <%- include("partials/footer") %>
+    <script src="/javascript/jquery.js"></script>
+    <script src="/javascript/index.js" s></script>
   </body>
 </html>
